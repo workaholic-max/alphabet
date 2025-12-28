@@ -1,0 +1,116 @@
+:root {
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-bg: #0b0f14;
+    --color-surface: #0f141d;
+    --color-text: #c1ccdb;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background-color: var(--color-bg);
+}
+
+.alphabet {
+    --alphabet-item-theme: transparent;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 100vh;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 15px;
+
+    > section {
+        display: flex;
+        gap: 15px;
+
+        &:first-of-type .alphabet-item__letter::before {
+            display: none;
+        }
+
+        &:last-of-type .alphabet-item__letter::after {
+            display: none;
+        }
+    }
+}
+
+.alphabet-item__letter {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > span {
+        --alphabet-letter-size: 36px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--alphabet-letter-size);
+        height: var(--alphabet-letter-size);
+        background-color: var(--alphabet-item-theme);
+        border-radius: 50%;
+        font-weight: 600;
+        color: var(--color-white);
+        text-transform: uppercase;
+        line-height: 1;
+        z-index: 2;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        height: 50%;
+        width: 1px;
+        background-color: var(--alphabet-item-theme);
+        border-radius: 9999px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+}
+
+.alphabet-item__card {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: linear-gradient(to right, var(--color-surface) 50%, transparent);
+    padding: 15px;
+    border-radius: 8px;
+
+    > h2 {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--alphabet-item-theme);
+    }
+
+    > h3 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text);
+    }
+}
