@@ -33,6 +33,10 @@ body {
     margin: 0 auto;
     padding: 15px;
 
+    @media screen and (max-width: 768px) {
+        padding: 20px 0 20px 15px;
+    }
+
     > section {
         display: flex;
         gap: 15px;
@@ -97,20 +101,25 @@ body {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     background: linear-gradient(to right, var(--color-surface) 50%, transparent);
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 8px 0 0 8px;
 
     > h2 {
         font-size: 18px;
         font-weight: 500;
         color: var(--alphabet-item-theme);
+        line-height: 1;
     }
 
     > h3 {
         font-size: 14px;
         font-weight: 400;
         color: var(--color-text);
+
+        @media screen and (max-width: 768px) {
+            line-height: 1.25;
+        }
     }
 }
